@@ -1,0 +1,333 @@
+\documentclass[11pt]{article}
+
+% -------------------------------------------------
+% Packages
+% -------------------------------------------------
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{siunitx}
+\usepackage{setspace}
+
+\setlength{\parindent}{0pt} % no indentation
+
+% Citations
+\usepackage[
+backend=biber,
+style=numeric-comp,
+sorting=none
+]{biblatex}
+
+\addbibresource{references.bib}
+
+% -------------------------------------------------
+% Title
+% -------------------------------------------------
+
+\title{Project Title}
+
+\author{
+Student 1 \\
+Student 2 \\
+Student 3 \\
+Student 4 \\
+Student 5
+}
+
+\date{\today}
+
+% -------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+Write a short summary (150-200 words) describing:
+\begin{itemize}
+\item The scientific question addressed in this project
+\item The dataset used
+\item The model or method applied
+\item The main results
+\end{itemize}
+
+The abstract should allow a reader to understand the purpose and
+outcome of the project without reading the full report.
+
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+% -------------------------------------------------
+\section{Introduction}
+
+The introduction should explain the scientific context of the project.
+
+Include the following elements:
+\begin{itemize}
+\item The broader research area (e.g., cosmology, particle physics, etc.)
+\item Why the problem studied in this project is scientifically interesting
+\item A brief overview of the physical phenomenon or experiment
+\item What observable quantity is measured
+\item The goal of this project
+\end{itemize}
+
+End the introduction with a short paragraph describing the structure of the report.
+
+% -------------------------------------------------
+\section{Physical Background}
+
+Describe the physics relevant to the project.
+
+Possible elements include:
+\begin{itemize}
+\item The theoretical framework
+\item Important equations or physical relationships
+\item The meaning of the observable quantities
+\item The physical interpretation of the measurements
+\end{itemize}
+
+Explain the concepts clearly so that a reader familiar with
+undergraduate physics can understand the analysis. Provide references to relevant literature where appropriate \cite{example}.
+
+
+% -------------------------------------------------
+\section{Data}
+
+Describe the dataset used in the analysis.
+
+Include:
+\begin{itemize}
+\item The source of the data
+\item The format of the dataset
+\item The measured quantities
+\item Any preprocessing or filtering steps applied
+\end{itemize}
+
+If relevant, describe:
+\begin{itemize}
+\item uncertainties in the measurements
+\item covariance between measurements
+\item selection cuts applied to the data
+\end{itemize}
+
+You may include a summary table of the dataset.
+
+% -------------------------------------------------
+\section{Model}
+
+Define the model used to describe the data.
+
+Explain:
+\begin{itemize}
+\item the parameters of the model
+\item the physical meaning of each parameter
+\item the assumptions made
+\end{itemize}
+
+Write the model prediction as a function of parameters:
+\begin{equation}
+    m(\theta)
+\end{equation}
+where $\theta$ represents the vector of model parameters.
+
+Clearly explain what features of the data the model aims to capture.
+
+Also discuss any approximations or simplifications made in the model.
+
+% -------------------------------------------------
+\section{Statistical Method}
+
+Explain the statistical framework used to analyze the data.
+
+Describe how the model predictions are compared with the observed data.
+
+If applicable, explain the assumptions made about measurement errors
+(e.g., Gaussian uncertainties).
+
+\subsection{Likelihood}
+
+Define the likelihood function used in the analysis.
+
+For example, a common choice is a Gaussian likelihood:
+\begin{equation}
+\ln \mathcal{L}(\theta)
+=
+-\frac{1}{2}(d-m(\theta))^{T}C^{-1}(d-m(\theta))
+\end{equation}
+where
+\begin{itemize}
+\item $d$ represents the data
+\item $m(\theta)$ is the model prediction
+\item $C$ is the covariance matrix.
+\end{itemize}
+
+Explain any simplifications made (for example using diagonal errors).
+
+\subsection{Priors}
+
+If Bayesian inference is used, specify the prior distributions
+for the model parameters.
+
+Explain:
+\begin{itemize}
+\item the choice of prior ranges
+\item whether the priors are uniform, Gaussian, etc.
+\item the physical motivation for these choices
+\end{itemize}
+
+% -------------------------------------------------
+\section{Inference Procedure}
+
+Describe how the posterior distribution of parameters is obtained.
+
+Include details such as:
+\begin{itemize}
+\item the sampling algorithm used (e.g., MCMC)
+\item the software library used
+\item the number of samples generated
+\item burn-in removal
+\item convergence diagnostics
+\end{itemize}
+
+Explain how posterior samples are used to estimate parameter
+uncertainties.
+
+% -------------------------------------------------
+\section{Results}
+
+Present the main results of the analysis.
+
+This section should include:
+\begin{itemize}
+\item posterior distributions of parameters
+\item best-fit parameter values
+\item credible intervals
+\end{itemize}
+
+\subsection{Parameter Constraints}
+
+Include a summary table:
+\begin{table}[h]
+\centering
+\begin{tabular}{ccc}
+\toprule
+Parameter & Estimate & Uncertainty \\
+\midrule
+Parameter 1 & ... & ... \\
+Parameter 2 & ... & ... \\
+\bottomrule
+\end{tabular}
+\caption{Posterior parameter estimates.}
+\end{table}
+
+\subsection{Model Comparison With Data}
+
+Include a figure showing:
+\begin{itemize}
+\item the observed data
+\item the model prediction
+\item residuals if relevant
+\end{itemize}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{example-image-a}
+\caption{Comparison between data and model prediction.}
+\end{figure}
+
+Interpret the results and discuss the level of agreement.
+
+% -------------------------------------------------
+\section{Discussion}
+
+Discuss the implications and limitations of the analysis.
+
+Topics may include:
+\begin{itemize}
+\item sensitivity of results to modeling assumptions
+\item statistical limitations
+\item systematic uncertainties
+\item comparison with results in the literature
+\end{itemize}
+
+% -------------------------------------------------
+\section{Possible Extensions}
+
+Describe possible improvements or extensions to the analysis.
+
+Examples:
+\begin{itemize}
+\item using a more detailed model
+\item incorporating additional datasets
+\item testing sensitivity to prior choices
+\item performing model comparison
+\end{itemize}
+
+% -------------------------------------------------
+\section{Conclusion}
+
+Summarize the main findings of the project.
+
+Restate:
+\begin{itemize}
+\item the problem studied
+\item the approach taken
+\item the key results
+\end{itemize}
+
+Briefly comment on the significance of the results.
+
+% -------------------------------------------------
+\section*{Author Contributions}
+
+Provide a short paragraph describing each student's contribution
+to the project.
+
+For example:
+\begin{itemize}
+\item Student A: data processing
+\item Student B: model development
+\item Student C: statistical inference
+\item Student D: visualization
+\item Student E: report writing and integration
+\end{itemize}
+
+% -------------------------------------------------
+
+\printbibliography
+
+% -------------------------------------------------
+\appendix
+
+\section{Additional Figures}
+
+Include supplementary plots such as:
+\begin{itemize}
+\item histograms of the data
+\item trace plots
+\item diagnostic plots
+\item additional comparisons
+\end{itemize}
+
+\section{Reproducibility}
+
+Provide information needed to reproduce the analysis:
+\begin{itemize}
+\item software used
+\item package versions
+\item instructions for running the code
+\item link to GitHub repository
+\end{itemize}
+
+\section{Feedback}
+How doable was this project scale 1-10.
+
+\end{document}
